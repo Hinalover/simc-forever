@@ -14459,7 +14459,7 @@ static const dbc_item_data_t::stats_t __item_stats_data[14456] = {
 
 // Items, ilevel 33-1300, wow build 1.60.1.70450
 
-static const std::array<dbc_item_data_t, 12510> __item_data_chunk0 { {
+static const std::array<dbc_item_data_t, 12511> __item_data_chunk0 { {
   { "Worn Shortsword",     25, 0x00000000, 0x00006000, 0x00, 2, 1, 0, 0, 1, 21, 2, 7, 0, 1900, 0.600000f, 0.000000f, 0, 0, 0xffff, 0xffffffffffffffff, { 0, 0, 0 }, 0, 0, 0, 0, 0, 0 },
   { "Bent Staff",     35, 0x00000000, 0x00006000, 0x00, 2, 1, 0, 0, 1, 17, 2, 10, 0, 2900, 0.400000f, 0.000000f, 0, 0, 0xffff, 0xffffffffffffffff, { 0, 0, 0 }, 0, 0, 0, 0, 0, 0 },
   { "Worn Mace",     36, 0x00000000, 0x00006000, 0x00, 2, 1, 0, 0, 1, 21, 2, 4, 0, 1900, 0.600000f, 0.000000f, 0, 0, 0xffff, 0xffffffffffffffff, { 0, 0, 0 }, 0, 0, 0, 0, 0, 0 },
@@ -17913,6 +17913,7 @@ static const std::array<dbc_item_data_t, 12510> __item_data_chunk0 { {
   { "Revelosh's Spaulders",   9389, 0x00000000, 0x00000004, 0x00, 42, 37, 0, 0, 3, 3, 4, 2, 1, 0, 0.000000f, 0.000000f, 0, 0, 0xffff, 0xffffffffffffffff, { 0, 0, 0 }, 0, 0, 0, 0, 0, 0 },
   { "Revelosh's Gloves",   9390, 0x00000000, 0x00000004, 0x00, 42, 37, 0, 0, 3, 10, 4, 1, 1, 0, 0.200000f, 0.000000f, 0, 0, 0xffff, 0xffffffffffffffff, { 0, 0, 0 }, 0, 0, 0, 0, 0, 0 },
   { "The Shoveler",   9391, 0x00000000, 0x00000004, 0x00, 37, 32, 0, 0, 3, 17, 2, 5, 2, 3400, 0.400000f, 0.000000f, &__item_stats_data[1950], 3, 0x0001, 0xffffffffffffffff, { 0, 0, 0 }, 0, 0, 0, 0, 0, 0 },
+  { "Annealed Blade",   9392, 0x00000000, 0x00000004, 0x00, 40, 35, 0, 0, 3, 13, 2, 7, 2, 1800, 0.600000f, 0.000000f, &__item_stats_data[128], 2, 0xffff, 0xffffffffffffffff, { 0, 0, 0 }, 0, 0, 0, 0, 0, 0 },
   { "Beacon of Hope",   9393, 0x00000000, 0x00000004, 0x00, 38, 33, 0, 0, 3, 23, 4, 0, 2, 2000, 0.000000f, 0.000000f, &__item_stats_data[1953], 3, 0xffff, 0xffffffffffffffff, { 0, 0, 0 }, 0, 0, 0, 0, 0, 0 },
   { "Horned Viking Helmet",   9394, 0x00000000, 0x00000004, 0x00, 42, 40, 0, 0, 3, 1, 4, 4, 1, 0, 0.000000f, 0.000000f, &__item_stats_data[1956], 2, 0xffff, 0xffffffffffffffff, { 0, 0, 0 }, 0, 0, 0, 0, 0, 0 },
   { "Gloves of Old",   9395, 0x00000000, 0x00004004, 0x00, 34, 29, 0, 0, 3, 10, 4, 1, 2, 0, 0.000000f, 0.000000f, &__item_stats_data[1920], 2, 0xffff, 0xffffffffffffffff, { 0, 0, 0 }, 0, 0, 0, 0, 0, 0 },
