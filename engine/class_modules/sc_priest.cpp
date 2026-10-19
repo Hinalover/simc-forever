@@ -6,6 +6,7 @@
 
 #include "simulationcraft.hpp"
 #include "action/parse_effects.hpp"
+#include "class_modules/apl/priest.hpp"
 
 namespace priestspace
 {
@@ -19,7 +20,12 @@ struct priest_t final : public player_t
   void init_base_stats() override;
   void init_spells() override;
 
+  std::string default_potion() const override   { return priest_apl::potion( this ); }
+  std::string default_flask() const override    { return priest_apl::flask( this ); }
+  std::string default_food() const override     { return priest_apl::food( this ); }
+
   action_t* create_action( util::string_view name, util::string_view options_str ) override;
+  void init_action_list() override;
 
   struct talents_t
   {
@@ -259,6 +265,20 @@ action_t* priest_t::create_action( util::string_view name, util::string_view opt
     return new holy_fire_t( this, options_str );
 
   return player_t::create_action( name, options_str );
+}
+
+void priest_t::init_action_list()
+{
+  if ( !action_list_str.empty() )
+  {
+    player_t::init_action_list();
+    return;
+  }
+
+  clear_action_priority_lists();
+  priest_apl::priest( this );
+  use_default_action_list = true;
+  player_t::init_action_list();
 }
 
 }  // namespace priestspace

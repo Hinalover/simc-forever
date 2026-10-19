@@ -29,4 +29,18 @@ std::string temporary_enchant( const player_t* )
 {
   return "disabled";
 }
+
+//priest_apl_start
+void priest( player_t* p )
+{
+  action_priority_list_t* default_ = p->get_action_priority_list( "default" );
+
+  default_->add_action( "shadow_word_pain,if=!ticking" );
+  default_->add_action( "devouring_plague,if=!ticking" );
+  default_->add_action( "mind_blast" );
+  default_->add_action( "shadow_word_death" );
+  default_->add_action( "mind_flay" );
+  default_->add_action( "smite" );
+}
+//priest_apl_end
 }  // namespace priest_apl
