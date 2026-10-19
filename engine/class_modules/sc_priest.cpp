@@ -126,12 +126,37 @@ struct shadow_word_pain_t : public priest_spell_t
   }
 };
 
+// Mind Blast
+
+constexpr std::array mind_blast_ranks {
+  //            spell
+  spell_rank_t{  8092 },
+  spell_rank_t{  8102 },
+  spell_rank_t{  8103 },
+  spell_rank_t{  8104 },
+  spell_rank_t{  8105 },
+  spell_rank_t{  8106 },
+  spell_rank_t{ 10945 },
+  spell_rank_t{ 10946 },
+  spell_rank_t{ 10947 },
+};
+struct mind_blast_t : public priest_spell_t
+{
+  mind_blast_t( priest_t* player, util::string_view options_str ) :
+    priest_spell_t( "mind_blast", player, player->find_spell( player->find_rank( mind_blast_ranks ).spell_id ) )
+  {
+    parse_options( options_str );
+  }
+};
+
 action_t* priest_t::create_action( util::string_view name, util::string_view options_str )
 {
   if ( name == "smite" )
     return new smite_t( this, options_str );
   if ( name == "shadow_word_pain" )
     return new shadow_word_pain_t( this, options_str );
+  if ( name == "mind_blast" )
+    return new mind_blast_t( this, options_str );
 
   return player_t::create_action( name, options_str );
 }
