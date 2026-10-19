@@ -200,6 +200,25 @@ struct mind_flay_t : public priest_spell_t
   }
 };
 
+// Shadow Word: Death
+
+// TODO: Backlash damage, effect 2
+constexpr std::array shadow_word_death_ranks {
+  //              spell
+  spell_rank_t{ 1309595 },
+  spell_rank_t{ 1309633 },
+  spell_rank_t{ 1309635 },
+  spell_rank_t{ 1309636 },
+};
+struct shadow_word_death_t : public priest_spell_t
+{
+  shadow_word_death_t( priest_t* player, util::string_view options_str ) :
+    priest_spell_t( "shadow_word_death", player, player->find_spell( player->find_rank( shadow_word_death_ranks ).spell_id ) )
+  {
+    parse_options( options_str );
+  }
+};
+
 action_t* priest_t::create_action( util::string_view name, util::string_view options_str )
 {
   if ( name == "smite" )
@@ -212,6 +231,8 @@ action_t* priest_t::create_action( util::string_view name, util::string_view opt
     return new devouring_plague_t( this, options_str );
   if ( name == "mind_flay" )
     return new mind_flay_t( this, options_str );
+  if ( name == "shadow_word_death" )
+    return new shadow_word_death_t( this, options_str );
 
   return player_t::create_action( name, options_str );
 }
