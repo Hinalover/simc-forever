@@ -2512,7 +2512,7 @@ static constexpr std::array<spelltext_data_t, 7139> __spelltext_data { {
   {   16089, "Increases the critical strike damage bonus of your Searing and Magma Totems and your Fire, Frost, and Nature spells by $m1%.", 0, 0 },
   {   16120, "Increases the critical strike chance of your Lightning Bolt and Chain Lightning spells by $s1%.", 0, 0 },
   {   16138, "Increase sharp weapon damage by 8 for 30 minutes.", 0, 0 },
-  {   16164, "Gives you a $h% chance to enter a Clearcasting state after casting any Fire, Frost, or Nature damage spell.  The Clearcasting state reduces the mana cost of your next damage spell by $16246s1%.", 0, 0 },
+  {   16164, "Gives you a $s1% chance to enter a Clearcasting state after casting any Fire, Frost, or Nature damage spell.  The Clearcasting state reduces the mana cost of your next damage spell by $16246s1%.", 0, 0 },
   {   16166, "Gain mastery over Fire and Lightning, reducing the cast time of Lightning Bolt and Lava Burst by ${$m1/-1000}.1 sec, and removing the cooldown from Chain Lightning. Lasts $d.", "Lightning Bolt and Lava Burst cast time reduced by ${$m1/-1000}.1 sec and Chain Lightning has no cooldown.", 0 },
   {   16173, "Reduces the Mana cost of your totems and any spells that summon or move them by $m1%.", 0, 0 },
   {   16176, "Increases your target's armor value by $m1% for $16177d after getting a critical effect from one of your healing spells.", 0, 0 },
@@ -7142,7 +7142,7 @@ static constexpr std::array<spelltext_data_t, 7139> __spelltext_data { {
 } };
 
 // spelltext hotfix entries, wow build 1.60.1.70450
-static constexpr std::array<hotfix::client_hotfix_entry_t, 31> __spelltext_hotfix_data { {
+static constexpr std::array<hotfix::client_hotfix_entry_t, 32> __spelltext_hotfix_data { {
   {     702,  1, "Physical damage done reduced by $s1.", "Physical damage done reduced by $w1." },
   {     980,  1, "$o1 Shadow damage over $d.", "$?$w2>0[${$o1*($w2/100+1)}][$o1] Shadow damage over $d." },
   {    1014,  1, "$o1 Shadow damage over $d.", "$?$w2>0[${$o1*($w2/100+1)}][$o1] Shadow damage over $d." },
@@ -7159,6 +7159,7 @@ static constexpr std::array<hotfix::client_hotfix_entry_t, 31> __spelltext_hotfi
   {   11713,  1, "$o1 Shadow damage over $d.", "$?$w2>0[${$o1*($w2/100+1)}][$o1] Shadow damage over $d." },
   {   12579,  1, "Taking $s1% increased damage from the caster's Cone of Cold spell.", "Taking $s1% increased damage and $s2% increased spell power coefficient from the caster's next Cone of Cold spell." },
   {   14913,  0, "Gives you a $s1% chance to avoid interruption caused by damage while casting any spell.", "Gives your spells a $s1% chance to not lose casting time when you take damage." },
+  {   16164,  0, "Gives you a $h% chance to enter a Clearcasting state after casting any Fire, Frost, or Nature damage spell.  The Clearcasting state reduces the mana cost of your next damage spell by $16246s1%.", "Gives you a $s1% chance to enter a Clearcasting state after casting any Fire, Frost, or Nature damage spell.  The Clearcasting state reduces the mana cost of your next damage spell by $16246s1%." },
   {   16181,  0, "Gives you a $m1% chance to avoid interruption caused by damage while casting any healing spell.", "Gives your healing spells a $m1% chance to not lose casting time when you take damage." },
   {   16191,  0, nullptr, "$@spelldesc16190" },
   {   17063,  0, "Gives you a $m1% chance to avoid interruption caused by damage while casting Arcane and Nature spells.", "Gives your Arcane and Nature spells a $m1% chance to not lose casting time when you take damage." },
