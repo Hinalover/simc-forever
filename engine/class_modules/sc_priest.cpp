@@ -219,6 +219,28 @@ struct shadow_word_death_t : public priest_spell_t
   }
 };
 
+// Holy Fire
+
+constexpr std::array holy_fire_ranks {
+  //            spell
+  spell_rank_t{ 14914 },
+  spell_rank_t{ 15262 },
+  spell_rank_t{ 15263 },
+  spell_rank_t{ 15264 },
+  spell_rank_t{ 15265 },
+  spell_rank_t{ 15266 },
+  spell_rank_t{ 15267 },
+  spell_rank_t{ 15261 }, // Rank 8 is 15261 for some reason
+};
+struct holy_fire_t : public priest_spell_t
+{
+  holy_fire_t( priest_t* player, util::string_view options_str ) :
+    priest_spell_t( "holy_fire", player, player->find_spell( player->find_rank( holy_fire_ranks ).spell_id ) )
+  {
+    parse_options( options_str );
+  }
+};
+
 action_t* priest_t::create_action( util::string_view name, util::string_view options_str )
 {
   if ( name == "smite" )
@@ -233,6 +255,8 @@ action_t* priest_t::create_action( util::string_view name, util::string_view opt
     return new mind_flay_t( this, options_str );
   if ( name == "shadow_word_death" )
     return new shadow_word_death_t( this, options_str );
+  if ( name == "holy_fire" )
+    return new holy_fire_t( this, options_str );
 
   return player_t::create_action( name, options_str );
 }
