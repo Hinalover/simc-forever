@@ -104,10 +104,34 @@ struct smite_t : public priest_spell_t
   }
 };
 
+// Shadow Word: Pain
+
+constexpr std::array shadow_word_pain_ranks {
+  //            spell
+  spell_rank_t{   589 },
+  spell_rank_t{   594 },
+  spell_rank_t{   970 },
+  spell_rank_t{   992 },
+  spell_rank_t{  2767 },
+  spell_rank_t{ 10892 },
+  spell_rank_t{ 10893 },
+  spell_rank_t{ 10894 },
+};
+struct shadow_word_pain_t : public priest_spell_t
+{
+  shadow_word_pain_t( priest_t* player, util::string_view options_str ) :
+    priest_spell_t( "shadow_word_pain", player, player->find_spell( player->find_rank( shadow_word_pain_ranks ).spell_id ) )
+  {
+    parse_options( options_str );
+  }
+};
+
 action_t* priest_t::create_action( util::string_view name, util::string_view options_str )
 {
   if ( name == "smite" )
     return new smite_t( this, options_str );
+  if ( name == "shadow_word_pain" )
+    return new shadow_word_pain_t( this, options_str );
 
   return player_t::create_action( name, options_str );
 }
