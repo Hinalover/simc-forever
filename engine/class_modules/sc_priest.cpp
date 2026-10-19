@@ -20,6 +20,11 @@ struct priest_t final : public player_t
   void init_spells() override;
 
   action_t* create_action( util::string_view name, util::string_view options_str ) override;
+
+  struct talents_t
+  {
+    player_talent_t mind_flay;
+  } talent;
 };
 
 struct priest_module_t final : public module_t
@@ -80,6 +85,8 @@ void priest_t::init_spells()
 
   parse_all_class_passives();
   parse_all_passive_talents();
+
+  talent.mind_flay = find_talent_spell( talent_tree::CLASS, "Mind Flay" );
 }
 
 // Smite
@@ -170,6 +177,29 @@ struct devouring_plague_t : public priest_spell_t
   }
 };
 
+// Mind Flay
+
+constexpr std::array mind_flay_ranks {
+  //            spell
+  spell_rank_t{ 15407 },
+  spell_rank_t{ 17311 },
+  spell_rank_t{ 17312 },
+  spell_rank_t{ 17313 },
+  spell_rank_t{ 17314 },
+  spell_rank_t{ 18807 },
+};
+struct mind_flay_t : public priest_spell_t
+{
+  mind_flay_t( priest_t* player, util::string_view options_str ) :
+    priest_spell_t( "mind_flay", player, player->talent.mind_flay.ok()
+                                         ? player->find_spell( player->find_rank( mind_flay_ranks ).spell_id )
+                                         : spell_data_t::not_found() )
+  {
+    parse_options( options_str );
+    channeled = true;
+  }
+};
+
 action_t* priest_t::create_action( util::string_view name, util::string_view options_str )
 {
   if ( name == "smite" )
@@ -180,6 +210,8 @@ action_t* priest_t::create_action( util::string_view name, util::string_view opt
     return new mind_blast_t( this, options_str );
   if ( name == "devouring_plague" )
     return new devouring_plague_t( this, options_str );
+  if ( name == "mind_flay" )
+    return new mind_flay_t( this, options_str );
 
   return player_t::create_action( name, options_str );
 }
