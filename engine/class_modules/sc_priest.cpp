@@ -16,6 +16,9 @@ struct priest_t final : public player_t
 
   resource_e primary_resource() const override { return RESOURCE_MANA; }
 
+  void init_base_stats() override;
+  void init_spells() override;
+
   action_t* create_action( util::string_view name, util::string_view options_str ) override;
 };
 
@@ -59,6 +62,25 @@ public:
 };
 
 using priest_spell_t = priest_action_t<spell_t>;
+
+void priest_t::init_base_stats()
+{
+  player_t::init_base_stats();
+
+  // original classic crit rates according to
+  // * https://github.com/wowsims/classic/blob/master/sim/core/base_stats.go#L106
+  // TODO: Verify in-game
+  base.attack_crit_chance = get_passive_player_value( 0.03, "all_crit" );
+  base.spell_crit_chance = get_passive_player_value( 0.008, "all_crit" );
+}
+
+void priest_t::init_spells()
+{
+  player_t::init_spells();
+
+  parse_all_class_passives();
+  parse_all_passive_talents();
+}
 
 // Smite
 
