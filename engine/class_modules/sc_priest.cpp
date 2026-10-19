@@ -149,6 +149,27 @@ struct mind_blast_t : public priest_spell_t
   }
 };
 
+// Devouring Plague
+
+// TODO: Heal the caster for the damage dealt
+constexpr std::array devouring_plague_ranks {
+  //            spell
+  spell_rank_t{  2944 },
+  spell_rank_t{ 19276 },
+  spell_rank_t{ 19277 },
+  spell_rank_t{ 19278 },
+  spell_rank_t{ 19279 },
+  spell_rank_t{ 19280 },
+};
+struct devouring_plague_t : public priest_spell_t
+{
+  devouring_plague_t( priest_t* player, util::string_view options_str ) :
+    priest_spell_t( "devouring_plague", player, player->find_spell( player->find_rank( devouring_plague_ranks ).spell_id ) )
+  {
+    parse_options( options_str );
+  }
+};
+
 action_t* priest_t::create_action( util::string_view name, util::string_view options_str )
 {
   if ( name == "smite" )
@@ -157,6 +178,8 @@ action_t* priest_t::create_action( util::string_view name, util::string_view opt
     return new shadow_word_pain_t( this, options_str );
   if ( name == "mind_blast" )
     return new mind_blast_t( this, options_str );
+  if ( name == "devouring_plague" )
+    return new devouring_plague_t( this, options_str );
 
   return player_t::create_action( name, options_str );
 }
