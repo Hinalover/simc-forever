@@ -17120,6 +17120,7 @@ Effects          :
 Description      : Imbue the Shaman's weapon with wind.  Each hit has a 20% chance of granting you $8236s2 extra $lattack:attacks; with $8236s1 extra melee attack power. When appied to main hand, disables any benefit you personally receive from Windfury Totem. Lasts for 60 minutes.
 
 Name             : Windfury Weapon (desc=Rank 2) (id=8236) [Spell Family (11)] 
+Hotfixed         : Attributes
 Class            : Shaman
 School           : Nature
 Spell Type       : None
@@ -17132,7 +17133,7 @@ Proc Chance      : 100%
 Proc Flags       : White Melee
 Affecting Spells : Elemental Weapons (16266 effect#3)
 Family Flags     : 23
-Attributes       : Proc Failure Burns Charge (0), No Aura Icon (60), Item Cast With Owner Skill (88), Unknown (493)
+Attributes       : Proc Failure Burns Charge (0), No Aura Icon (60), Item Cast With Owner Skill (88), Normal Melee Attack (345), Unknown (493)
 Effects          :
 #1 (id=686280)   : Apply Aura (6) | Modify Attack Power (99)
                    Base Value: 119 | Scaled Value: 221.4 | Points Per Level: 12.8 | Target: Self (1)
