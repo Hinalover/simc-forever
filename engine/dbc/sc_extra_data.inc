@@ -203,7 +203,7 @@ static constexpr stat_data_t __gt_class_stats_by_level[][120] =
     {    106,     73,   1543,     72,      0 },
     {    108,     75,   1578,     73,      0 },
     {    110,     76,   1614,     75,      0 },
-    {    113,     78,   1652,     77,      0 }, // 60
+    {    120,     80,    110,     30,     45 }, // 60 TODO: Recheck, info from WoW Sims 
     {      0,      0,      0,      0,      0 },
     {      0,      0,      0,      0,      0 },
     {      0,      0,      0,      0,      0 },
@@ -327,7 +327,7 @@ static constexpr stat_data_t __gt_class_stats_by_level[][120] =
     {    106,     37,   1543,    106,      0 },
     {    108,     38,   1578,    108,      0 },
     {    110,     39,   1614,    110,      0 },
-    {    113,     40,   1652,    113,      0 }, // 60
+    {    105,     65,    100,     70,     75 }, // 60  TODO: Recheck, info from WoW Sims 
     {      0,      0,      0,      0,      0 },
     {      0,      0,      0,      0,      0 },
     {      0,      0,      0,      0,      0 },
@@ -452,7 +452,7 @@ static constexpr stat_data_t __gt_class_stats_by_level[][120] =
     {     64,    106,   1543,     87,      0 },
     {     66,    108,   1578,     89,      0 },
     {     67,    110,   1614,     91,      0 },
-    {     69,    113,   1652,     93,      0 }, // 60
+    {     55,    125,     90,     65,     70 }, // 60  TODO: Recheck, info from WoW Sims 
     {     71,    116,   1691,     95,      0 },
     {     73,    119,   1732,     98,      0 },
     {     74,    121,   1774,    100,      0 },
@@ -577,7 +577,7 @@ static constexpr stat_data_t __gt_class_stats_by_level[][120] =
     {     88,    106,   1543,     72,      0 },
     {     90,    108,   1578,     73,      0 },
     {     92,    110,   1614,     75,      0 },
-    {     94,    113,   1652,     77,      0 }, // 60
+    {     80,    130,     75,     35,     50 }, // 60  TODO: Recheck, info from WoW Sims 
     {      0,      0,      0,      0,      0 },
     {      0,      0,      0,      0,      0 },
     {      0,      0,      0,      0,      0 },
@@ -702,7 +702,7 @@ static constexpr stat_data_t __gt_class_stats_by_level[][120] =
     {     61,     88,   1543,    106,      0 },
     {     63,     90,   1578,    108,      0 },
     {     64,     92,   1614,    110,      0 },
-    {     66,     94,   1652,    113,      0 }, // 60
+    {     35,     40,     50,    120,    125 }, // 60 TODO: Recheck, info from WoW Sims 
     {      0,      0,      0,      0,      0 },
     {      0,      0,      0,      0,      0 },
     {      0,      0,      0,      0,      0 },
@@ -830,7 +830,7 @@ static constexpr stat_data_t __gt_class_stats_by_level[][120] =
     {      0,      0,      0,      0,      0 },
     {      0,      0,      0,      0,      0 },
     {      0,      0,      0,      0,      0 },
-    {      0,      0,      0,      0,      0 }, // 60
+    {     85,     55,     95,     90,    100 }, // 60 TODO: Recheck, info from WoW Sims 
     {      0,      0,      0,      0,      0 },
     {      0,      0,      0,      0,      0 },
     {      0,      0,      0,      0,      0 },
@@ -955,7 +955,7 @@ static constexpr stat_data_t __gt_class_stats_by_level[][120] =
     {     46,     72,   1543,    106,      0 },
     {     48,     73,   1578,    108,      0 },
     {     49,     75,   1614,    110,      0 },
-    {     50,     77,   1652,    113,      0 }, // 60
+    {     30,     35,     45,    125,    120 }, // 60 TODO: Recheck, info from WoW Sims 
     {      0,      0,      0,      0,      0 },
     {      0,      0,      0,      0,      0 },
     {      0,      0,      0,      0,      0 },
@@ -1080,7 +1080,7 @@ static constexpr stat_data_t __gt_class_stats_by_level[][120] =
     {     40,     81,   1543,    106,      0 },
     {     41,     83,   1578,    108,      0 },
     {     42,     85,   1614,    110,      0 },
-    {     43,     87,   1652,    113,      0 }, // 60
+    {     45,     50,     65,    110,    115 }, // 60 TODO: Recheck, info from WoW Sims 
     {      0,      0,      0,      0,      0 },
     {      0,      0,      0,      0,      0 },
     {      0,      0,      0,      0,      0 },
@@ -1206,7 +1206,7 @@ static constexpr stat_data_t __gt_class_stats_by_level[][120] =
     {     45,    106,   1543,    106,      0 },
     {     46,    108,   1578,    108,      0 },
     {     48,    110,   1614,    110,      0 },
-    {     49,    113,   1652,    113,      0 }, // 60
+    {     65,     60,     70,    100,    110 }, // 60 TODO: Recheck, info from WoW Sims 
     {      0,      0,      0,      0,      0 },
     {      0,      0,      0,      0,      0 },
     {      0,      0,      0,      0,      0 },
@@ -1276,13 +1276,13 @@ static constexpr stat_data_t __gt_race_stats[] =
   // Str Agi Sta Int Spi
   {   0,  0,  0,  0,  0 }, // No Race
   {   0,  0,  0,  0,  0 }, // Human
-  {   3, -3,  1, -1,  0 }, // Orc
-  {   2, -2,  1, -1,  0 }, // Dwarf
-  {  -2,  2,  0,  0,  0 }, // Night Elf
-  {   2, -1,  1, -2,  0 }, // Undead
-  {   2, -2,  2, -2,  0 }, // Tauren
-  {  -3,  1, -1,  3,  0 }, // Gnome
-  {   1,  2,  0, -3,  0 }, // Troll
+  {   3, -3,  2, -3,  3 }, // Orc TODO: Recheck, info from WoW Sims 
+  {   2, -4,  3, -1, -1 }, // Dwarf  TODO: Recheck, info from WoW Sims 
+  {  -3,  5, -1,  0,  0 }, // Night Elf  TODO: Recheck, info from WoW Sims 
+  {  -1, -2,  1, -2,  5 }, // Undead  TODO: Recheck, info from WoW Sims 
+  {   5, -5,  2, -5,  2 }, // Tauren TODO: Recheck, info from WoW Sims 
+  {  -5,  3, -1,  3,  0 }, // Gnome TODO: Recheck, info from WoW Sims 
+  {   1,  2,  1, -4,  1 }, // Troll TODO: Recheck, info from WoW Sims 
   {  -3,  1, -1,  3,  0 }, // Goblin
   {  -3,  1,  0,  2,  0 }, // Blood Elf
   {   1, -3,  2,  0,  0 }, // Draenei
