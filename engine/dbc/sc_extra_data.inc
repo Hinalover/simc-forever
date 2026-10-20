@@ -1449,13 +1449,13 @@ static constexpr stat_data_t __gt_race_stats[] =
   // Str Agi Sta Int Spi
   {   0,  0,  0,  0,  0 }, // No Race
   {   0,  0,  0,  0,  0 }, // Human
-  {   3, -3,  2, -3,  3 }, // Orc TODO: Recheck, info from WoW Sims 
-  {   2, -4,  3, -1, -1 }, // Dwarf  TODO: Recheck, info from WoW Sims 
-  {  -3,  5, -1,  0,  0 }, // Night Elf  TODO: Recheck, info from WoW Sims 
-  {  -1, -2,  1, -2,  5 }, // Undead  TODO: Recheck, info from WoW Sims 
-  {   5, -5,  2, -5,  2 }, // Tauren TODO: Recheck, info from WoW Sims 
-  {  -5,  3, -1,  3,  0 }, // Gnome TODO: Recheck, info from WoW Sims 
-  {   1,  2,  1, -4,  1 }, // Troll TODO: Recheck, info from WoW Sims 
+  {   3, -3,  1, -1,  0 }, // Orc TODO: Recheck, Midnight values
+  {   2, -2,  1, -1,  0 }, // Dwarf TODO: Recheck, Midnight values
+  {  -2,  2,  0,  0,  0 }, // Night Elf
+  {   2, -1,  1, -2,  0 }, // Undead TODO: Recheck, Midnight values
+  {   2, -2,  2, -2,  0 }, // Tauren TODO: Recheck, Midnight values
+  {  -3,  1, -1,  3,  0 }, // Gnome TODO: Recheck, Midnight values
+  {   1,  2,  0, -3,  0 }, // Troll TODO: Recheck, Midnight values
   {  -3,  1, -1,  3,  0 }, // Goblin
   {  -3,  1,  0,  2,  0 }, // Blood Elf
   {   1, -3,  2,  0,  0 }, // Draenei
