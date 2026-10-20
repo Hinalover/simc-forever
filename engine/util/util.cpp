@@ -1119,6 +1119,7 @@ const char* util::slot_type_string( slot_e slot )
     case SLOT_BACK:      return "back";
     case SLOT_MAIN_HAND: return "main_hand";
     case SLOT_OFF_HAND:  return "off_hand";
+    case SLOT_RANGED:    return "ranged";
     case SLOT_TABARD:    return "tabard";
     default:             return "unknown";
   }
@@ -2285,15 +2286,16 @@ slot_e util::translate_invtype( inventory_type inv_type )
     case INVTYPE_2HWEAPON:
     case INVTYPE_WEAPON:
     case INVTYPE_WEAPONMAINHAND:
-    case INVTYPE_RANGED:
-    case INVTYPE_RANGEDRIGHT:
       return SLOT_MAIN_HAND;
     case INVTYPE_WEAPONOFFHAND:
     case INVTYPE_SHIELD:
     case INVTYPE_HOLDABLE:
       return SLOT_OFF_HAND;
     case INVTYPE_THROWN:
-      return SLOT_MAIN_HAND;
+    case INVTYPE_RANGED:
+    case INVTYPE_RANGEDRIGHT:
+    case INVTYPE_RELIC:
+      return SLOT_RANGED;
     case INVTYPE_CHEST:
     case INVTYPE_ROBE:
       return SLOT_CHEST;

@@ -1033,6 +1033,7 @@ player_t::player_t( sim_t* s, player_e t, util::string_view n, race_e r )
     // Attacks
     main_hand_attack( nullptr ),
     off_hand_attack( nullptr ),
+    ranged_attack( nullptr ),
     current_auto_attack_speed( 1.0 ),
     // Resources
     resources(),
@@ -6522,6 +6523,8 @@ void player_t::halt()
     main_hand_attack->cancel();
   if ( off_hand_attack )
     off_hand_attack->cancel();
+  if ( ranged_attack )
+    ranged_attack->cancel();
 }
 
 void player_t::stun()
@@ -12296,6 +12299,7 @@ void player_t::create_options()
   add_option( opt_string( "back", items[ SLOT_BACK ].options_str ) );
   add_option( opt_string( "main_hand", items[ SLOT_MAIN_HAND ].options_str ) );
   add_option( opt_string( "off_hand", items[ SLOT_OFF_HAND ].options_str ) );
+  add_option( opt_string( "ranged", items[ SLOT_RANGED ].options_str ) );
   add_option( opt_string( "tabard", items[ SLOT_TABARD ].options_str ) );
 
   // Set Bonus
@@ -13502,10 +13506,10 @@ void player_t::delay_ranged_auto_attacks( timespan_t delay, proc_t* proc )
 
   bool delayed = false;
 
-  if ( main_hand_attack && main_hand_attack->execute_event && dynamic_cast<ranged_attack_t*>(main_hand_attack) )
+  if ( ranged_attack && ranged_attack->execute_event && dynamic_cast<ranged_attack_t*>(ranged_attack) )
   {
-    sim->print_debug( "Delaying ranged auto attack swing timer by {} to {}", delay, main_hand_attack->execute_event->remains() + delay );
-    main_hand_attack->execute_event->reschedule( main_hand_attack->execute_event->remains() + delay );
+    sim->print_debug( "Delaying ranged auto attack swing timer by {} to {}", delay, ranged_attack->execute_event->remains() + delay );
+    ranged_attack->execute_event->reschedule( ranged_attack->execute_event->remains() + delay );
     delayed = true;
   }
 

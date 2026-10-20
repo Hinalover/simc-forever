@@ -266,6 +266,7 @@ struct player_t : public actor_t
   std::map<slot_e, action_t*> melee_attacks;
   attack_t* main_hand_attack;
   attack_t*  off_hand_attack;
+  attack_t*    ranged_attack;
 
   // Current attack speed (needed for dynamic attack speed adjustments)
   double current_auto_attack_speed;
