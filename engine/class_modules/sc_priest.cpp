@@ -126,16 +126,6 @@ void priest_t::parse_action_effects( action_t* action )
   assert( _a );
 
   _a->parse_effects( buff.shadowform );
-
-  // Modify Power Cost% (72) is not handled by parse_effects
-  const auto& shadowform_cost = buff.shadowform->data().effectN( 4 );
-  if ( dbc::get_school_mask( action->get_school() ) & shadowform_cost.misc_value1() )
-  {
-    add_parse_entry( _a->cost_effects )
-      .set_buff( buff.shadowform )
-      .set_value( shadowform_cost.percent() )
-      .set_eff( &shadowform_cost );
-  }
 }
 
 // Smite
