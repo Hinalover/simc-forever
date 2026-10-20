@@ -14459,7 +14459,7 @@ static const dbc_item_data_t::stats_t __item_stats_data[14456] = {
 
 // Items, ilevel 33-1300, wow build 1.60.1.70450
 
-static const std::array<dbc_item_data_t, 12514> __item_data_chunk0 { {
+static const std::array<dbc_item_data_t, 12516> __item_data_chunk0 { {
   { "Worn Shortsword",     25, 0x00000000, 0x00006000, 0x00, 2, 1, 0, 0, 1, 21, 2, 7, 0, 1900, 0.600000f, 0.000000f, 0, 0, 0xffff, 0xffffffffffffffff, { 0, 0, 0 }, 0, 0, 0, 0, 0, 0 },
   { "Bent Staff",     35, 0x00000000, 0x00006000, 0x00, 2, 1, 0, 0, 1, 17, 2, 10, 0, 2900, 0.400000f, 0.000000f, 0, 0, 0xffff, 0xffffffffffffffff, { 0, 0, 0 }, 0, 0, 0, 0, 0, 0 },
   { "Worn Mace",     36, 0x00000000, 0x00006000, 0x00, 2, 1, 0, 0, 1, 21, 2, 4, 0, 1900, 0.600000f, 0.000000f, 0, 0, 0xffff, 0xffffffffffffffff, { 0, 0, 0 }, 0, 0, 0, 0, 0, 0 },
@@ -17940,6 +17940,7 @@ static const std::array<dbc_item_data_t, 12514> __item_data_chunk0 { {
   { "Archaedic Shard",   9417, 0x00000010, 0x00006004, 0x00, 47, 42, 0, 0, 3, 2, 4, 0, 1, 0, 0.000000f, 0.000000f, 0, 0, 0xffff, 0xffffffffffffffff, { 0, 0, 0 }, 0, 0, 0, 0, 0, 0 },
   { "Galgann's Firehammer",   9419, 0x00000000, 0x00000004, 0x00, 47, 42, 0, 0, 3, 21, 2, 4, 1, 2200, 0.600000f, 0.000000f, 0, 0, 0xffff, 0xffffffffffffffff, { 0, 0, 0 }, 0, 0, 0, 0, 0, 0 },
   { "Adventurer's Pith Helmet",   9420, 0x00000000, 0x00000004, 0x00, 37, 32, 0, 0, 3, 1, 4, 2, 2, 0, 0.200000f, 0.000000f, &__item_stats_data[1999], 3, 0xffff, 0xffffffffffffffff, { 0, 0, 0 }, 0, 0, 0, 0, 0, 0 },
+  { "Pendulum of Doom",   9425, 0x00000000, 0x00000004, 0x00, 44, 39, 0, 0, 3, 17, 2, 1, 1, 4000, 0.400000f, 0.000000f, 0, 0, 0xffff, 0xffffffffffffffff, { 0, 0, 0 }, 0, 0, 0, 0, 0, 0 },
   { "Monolithic Bow",   9426, 0x00000000, 0x00000004, 0x00, 41, 36, 0, 0, 3, 15, 2, 2, 2, 2700, 0.600000f, 0.000000f, &__item_stats_data[463], 2, 0xffff, 0xffffffffffffffff, { 0, 0, 0 }, 0, 0, 0, 0, 0, 0 },
   { "Unearthed Bands",   9428, 0x00000000, 0x00000004, 0x00, 35, 30, 0, 0, 3, 9, 4, 2, 2, 0, 0.000000f, 0.000000f, &__item_stats_data[2002], 1, 0xffff, 0xffffffffffffffff, { 0, 0, 0 }, 0, 0, 0, 0, 0, 0 },
   { "Papal Fez",   9431, 0x00000000, 0x00000004, 0x00, 43, 38, 0, 0, 3, 1, 4, 1, 2, 0, 0.200000f, 0.000000f, &__item_stats_data[2003], 4, 0xffff, 0xffffffffffffffff, { 0, 0, 0 }, 0, 0, 0, 0, 0, 0 },
@@ -26054,6 +26055,7 @@ static const std::array<dbc_item_data_t, 12514> __item_data_chunk0 { {
   { "Monster - Glaive, Night Elf Huntress", 274461, 0x00000000, 0x00006004, 0x00, 1, 1, 0, 0, 0, 13, 2, 0, 0, 2000, 0.600000f, 0.000000f, 0, 0, 0xffff, 0xffffffffffffffff, { 0, 0, 0 }, 0, 0, 0, 0, 0, 0 },
   { "Monster - Polearm, 2H NightElf", 274466, 0x00000000, 0x00006004, 0x00, 1, 1, 0, 0, 0, 17, 2, 6, 0, 1700, 0.400000f, 0.000000f, 0, 0, 0xffff, 0xffffffffffffffff, { 0, 0, 0 }, 0, 0, 0, 0, 0, 0 },
   { "Monster - Staff, Druid of the Talon", 274480, 0x00000000, 0x00006004, 0x00, 1, 1, 0, 0, 0, 17, 2, 10, 0, 3400, 0.400000f, 0.000000f, 0, 0, 0xffff, 0xffffffffffffffff, { 0, 0, 0 }, 0, 0, 0, 0, 0, 0 },
+  { "Axe of Inevitable Ruin", 274484, 0x000004c0, 0x00000004, 0x00, 42, 37, 0, 0, 3, 17, 2, 1, 1, 3000, 0.400000f, 0.000000f, 0, 0, 0xffff, 0xffffffffffffffff, { 0, 0, 0 }, 0, 0, 0, 0, 0, 0 },
   { "Axe of Lingering Dread", 274485, 0x00000400, 0x00000004, 0x00, 44, 39, 0, 0, 3, 17, 2, 1, 1, 3000, 0.400000f, 0.000000f, &__item_stats_data[13532], 2, 0xffff, 0xffffffffffffffff, { 0, 0, 0 }, 0, 0, 0, 0, 0, 0 },
   { "Centaur Hoofwarmers", 274490, 0x00000000, 0x00002004, 0x00, 40, 35, 0, 0, 2, 8, 4, 2, 2, 0, 0.000000f, 0.000000f, &__item_stats_data[13534], 2, 0xffff, 0xffffffffffffffff, { 0, 0, 0 }, 0, 0, 0, 0, 0, 0 },
   { "Monster - Sword, Golden Long", 274501, 0x00000000, 0x00006004, 0x00, 1, 1, 0, 0, 0, 13, 2, 7, 0, 2000, 0.600000f, 0.000000f, 0, 0, 0xffff, 0xffffffffffffffff, { 0, 0, 0 }, 0, 0, 0, 0, 0, 0 },
