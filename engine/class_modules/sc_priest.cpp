@@ -10,15 +10,17 @@
 
 namespace priestspace
 {
-struct priest_t final : public player_t
+struct priest_t final : public parse_player_effects_t
 {
   priest_t( sim_t* sim, util::string_view name, race_e r = RACE_NONE ) :
-    player_t( sim, PRIEST, name, r ) {}
+    parse_player_effects_t( sim, PRIEST, name, r ) {}
 
   resource_e primary_resource() const override { return RESOURCE_MANA; }
 
   void init_base_stats() override;
   void init_spells() override;
+  void create_buffs() override;
+  void parse_action_effects( action_t* );
 
   std::string default_potion() const override   { return priest_apl::potion( this ); }
   std::string default_flask() const override    { return priest_apl::flask( this ); }
@@ -27,9 +29,15 @@ struct priest_t final : public player_t
   action_t* create_action( util::string_view name, util::string_view options_str ) override;
   void init_action_list() override;
 
+  struct buffs_t
+  {
+    buff_t* shadowform = nullptr;
+  } buff;
+
   struct talents_t
   {
     player_talent_t mind_flay;
+    player_talent_t shadowform;
   } talent;
 };
 
@@ -63,7 +71,11 @@ public:
   using base_t = priest_action_t<Base>;
 
   template <typename... Args>
-  priest_action_t( Args&&... args ) : ab( std::forward<Args>( args )... ) {}
+  priest_action_t( Args&&... args ) : ab( std::forward<Args>( args )... )
+  {
+    if ( ab::data().ok() )
+      p()->parse_action_effects( this );
+  }
 
   priest_t* p()
   { return debug_cast<priest_t*>( this->player ); }
@@ -76,7 +88,7 @@ using priest_spell_t = priest_action_t<spell_t>;
 
 void priest_t::init_base_stats()
 {
-  player_t::init_base_stats();
+  parse_player_effects_t::init_base_stats();
 
   // original classic crit rates according to
   // * https://github.com/wowsims/classic/blob/master/sim/core/base_stats.go#L106
@@ -87,12 +99,40 @@ void priest_t::init_base_stats()
 
 void priest_t::init_spells()
 {
-  player_t::init_spells();
+  parse_player_effects_t::init_spells();
 
   parse_all_class_passives();
   parse_all_passive_talents();
 
-  talent.mind_flay = find_talent_spell( talent_tree::CLASS, "Mind Flay" );
+  talent.mind_flay  = find_talent_spell( talent_tree::CLASS, "Mind Flay" );
+  talent.shadowform = find_talent_spell( talent_tree::CLASS, "Shadowform" );
+}
+
+void priest_t::create_buffs()
+{
+  parse_player_effects_t::create_buffs();
+
+  buff.shadowform = make_buff( this, "shadowform", talent.shadowform );
+
+  parse_effects( buff.shadowform );
+}
+
+void priest_t::parse_action_effects( action_t* action )
+{
+  auto _a = dynamic_cast<parse_action_base_t*>( action );
+  assert( _a );
+
+  _a->parse_effects( buff.shadowform );
+
+  // Modify Power Cost% (72) is not handled by parse_effects
+  const auto& shadowform_cost = buff.shadowform->data().effectN( 4 );
+  if ( dbc::get_school_mask( action->get_school() ) & shadowform_cost.misc_value1() )
+  {
+    add_parse_entry( _a->cost_effects )
+      .set_buff( buff.shadowform )
+      .set_value( shadowform_cost.percent() )
+      .set_eff( &shadowform_cost );
+  }
 }
 
 // Smite
@@ -247,6 +287,36 @@ struct holy_fire_t : public priest_spell_t
   }
 };
 
+// Shadowform
+
+struct shadowform_t : public priest_spell_t
+{
+  shadowform_t( priest_t* player, util::string_view options_str ) :
+    priest_spell_t( "shadowform", player, player->talent.shadowform.ok()
+                                          ? player->talent.shadowform.spell()
+                                          : spell_data_t::not_found() )
+  {
+    parse_options( options_str );
+    harmful = false;
+    target = player;
+  }
+
+  void execute() override
+  {
+    priest_spell_t::execute();
+
+    p()->buff.shadowform->trigger();
+  }
+
+  bool ready() override
+  {
+    if ( p()->buff.shadowform->check() )
+      return false;
+
+    return priest_spell_t::ready();
+  }
+};
+
 action_t* priest_t::create_action( util::string_view name, util::string_view options_str )
 {
   if ( name == "smite" )
@@ -263,22 +333,24 @@ action_t* priest_t::create_action( util::string_view name, util::string_view opt
     return new shadow_word_death_t( this, options_str );
   if ( name == "holy_fire" )
     return new holy_fire_t( this, options_str );
+  if ( name == "shadowform" )
+    return new shadowform_t( this, options_str );
 
-  return player_t::create_action( name, options_str );
+  return parse_player_effects_t::create_action( name, options_str );
 }
 
 void priest_t::init_action_list()
 {
   if ( !action_list_str.empty() )
   {
-    player_t::init_action_list();
+    parse_player_effects_t::init_action_list();
     return;
   }
 
   clear_action_priority_lists();
   priest_apl::priest( this );
   use_default_action_list = true;
-  player_t::init_action_list();
+  parse_player_effects_t::init_action_list();
 }
 
 }  // namespace priestspace
