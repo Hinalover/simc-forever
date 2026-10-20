@@ -14297,7 +14297,7 @@ bool player_t::register_passive_effect( const spelleffect_data_t& modifying_eff,
       case A_RESTORE_POWER:  // 85
         if ( modifying_eff.misc_value1() != POWER_MANA )  // only mana per 5
           return false;
-        misc_type = RESOURCE_MANA;
+        misc_type = util::power_type_to_resource( static_cast<power_e>( modifying_eff.misc_value1() ) );
         flat_val = modifying_eff.average( this ) / 5.0;
         break;
       case A_MOD_MANA_REGEN_INTERRUPT:  // 134
