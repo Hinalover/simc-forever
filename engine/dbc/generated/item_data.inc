@@ -21566,7 +21566,7 @@ static const std::array<dbc_item_data_t, 12514> __item_data_chunk0 { {
   { "Tome of Sacrifice",  18602, 0x00000000, 0x00006004, 0x00, 60, 0, 0, 0, 3, 23, 4, 0, 1, 0, 0.000000f, 0.000000f, &__item_stats_data[4957], 3, 0x0100, 0xffffffffffffffff, { 0, 0, 0 }, 0, 0, 0, 0, 0, 0 },
   { "Benediction",  18608, 0x00000440, 0x00006004, 0x00, 75, 60, 0, 0, 4, 17, 2, 10, 1, 3000, 0.400000f, -14.000000f, &__item_stats_data[4960], 4, 0x0010, 0xffffffffffffffff, { 0, 0, 0 }, 0, 0, 0, 0, 0, 0 },
   { "Anathema",  18609, 0x00000440, 0x00006004, 0x00, 75, 60, 0, 0, 4, 17, 2, 10, 1, 3000, 0.400000f, -14.000000f, &__item_stats_data[4964], 5, 0x0010, 0xffffffffffffffff, { 0, 0, 0 }, 0, 0, 0, 0, 0, 0 },
-  { "Keen Machete",  18610, 0x00000000, 0x00004004, 0x00, 10, 5, 0, 0, 1, 21, 2, 7, 2, 1800, 0.600000f, 0.000000f, &__item_stats_data[3], 1, 0xffff, 0xffffffffffffffff, { 0, 0, 0 }, 0, 0, 0, 0, 0, 0 },
+  { "Keen Machete",  18610, 0x00000000, 0x00004004, 0x00, 10, 5, 0, 0, 2, 21, 2, 7, 2, 1800, 0.600000f, 0.000000f, &__item_stats_data[3], 1, 0xffff, 0xffffffffffffffff, { 0, 0, 0 }, 0, 0, 0, 0, 0, 0 },
   { "Gnarlpine Leggings",  18611, 0x00000000, 0x00004004, 0x00, 9, 4, 0, 0, 2, 7, 4, 2, 2, 0, 0.000000f, 0.000000f, &__item_stats_data[55], 1, 0xffff, 0xffffffffffffffff, { 0, 0, 0 }, 0, 0, 0, 0, 0, 0 },
   { "Bloody Chain Boots",  18612, 0x00000000, 0x00004004, 0x00, 10, 5, 0, 0, 2, 8, 4, 3, 2, 0, 0.000000f, 0.000000f, &__item_stats_data[3], 1, 0xffff, 0xffffffffffffffff, { 0, 0, 0 }, 0, 0, 0, 0, 0, 0 },
   { "Gyrofreeze Ice Reflector",  18634, 0x00080000, 0x00006004, 0x00, 52, 47, 202, 260, 3, 12, 4, 0, 2, 0, 0.000000f, 0.000000f, &__item_stats_data[4969], 1, 0xffff, 0xffffffffffffffff, { 0, 0, 0 }, 0, 0, 0, 0, 0, 0 },
