@@ -1268,6 +1268,7 @@ player_t::base_initial_current_t::base_initial_current_t() :
   block_value(),
   all_crit( 0 ),
   all_haste( 1.0 ),
+  mana_regen_while_casting( 0 ),
   melee_haste( 1.0 ),
   spell_haste( 1.0 ),
   ranged_haste( 1.0 ),
@@ -1522,6 +1523,8 @@ void player_t::init_base_stats()
     base.leech          = get_passive_player_value( base.leech, "leech" );
     base.avoidance      = 0.0;
     base.crit_avoidance = get_passive_player_value( base.crit_avoidance, "crit_avoidance" );
+
+    base.mana_regen_while_casting = get_passive_player_value( base.mana_regen_while_casting, "mana_regen_while_casting" );
 
     base.base_armor_multiplier = get_passive_player_value( base.base_armor_multiplier, "base_armor_multiplier" );
     base.armor_multiplier      = get_passive_player_value( base.armor_multiplier, "armor_multiplier" );
@@ -4174,7 +4177,7 @@ void player_t::min_threshold_trigger()
     if ( pres == RESOURCE_MANA && is_player() && recent_cast() )
     {
       regen_delay = last_cast + 5_s - sim->current_time();
-      rps         = mana_regen_from_spirit();
+      rps         = resources.base_regen_per_second[ pres ] + mana_regen_from_spirit();
     }
 
     if ( rps > 0 )
@@ -4354,9 +4357,9 @@ double player_t::resource_regen_per_second( resource_e r ) const
   if ( r == RESOURCE_MANA && is_player() )
   {
     if ( recent_cast() )
-      return 0;
-
-    reg += mana_regen_from_spirit();
+      reg += mana_regen_from_spirit() * current.mana_regen_while_casting;
+    else
+      reg += mana_regen_from_spirit();
   }
 
   if ( resources.hasted[ r ] )
@@ -13939,12 +13942,14 @@ static constexpr std::pair<int, std::string_view> field_type_map[] = {
   { A_MOD_SPELL_CRIT_CHANCE,                  "spell_crit"                       },  // 57
   { A_MOD_DAMAGE_PERCENT_DONE,                "damage_multiplier"                },  // 79
   { A_MOD_PERCENT_STAT,                       "base_attribute_multiplier"        },  // 80
+  { A_RESTORE_POWER,                          "resource_regen"                   },  // 85
   { A_MOD_RESISTANCE_PCT,                     "armor_multiplier"                 },  // 101
   { A_MOD_POWER_REGEN_PERCENT,                "resource_regen"                   },  // 110
   { A_MOD_HEALING_RECEIVED_PCT,               "healing_received_multiplier"      },  // 118
   { A_INCREASE_RESOURCE_PCT,                  "resource_multiplier"              },  // 119
   { A_MOD_SPEED_ALWAYS,                       "move_speed_modifier_-_stacking"   },  // 129
   { A_INCREASE_RESOURCE_PCT,                  "resource_multiplier"              },  // 132
+  { A_MOD_MANA_REGEN_INTERRUPT,               "mana_regen_while_casting"         },  // 134
   { A_MOD_HEALING_DONE_PERCENT,               "healing_multiplier"               },  // 136
   { A_MOD_TOTAL_STAT_PERCENTAGE,              "attribute_multiplier"             },  // 137
   { -(int)A_MOD_TOTAL_STAT_PERCENTAGE,        "armor_type_multiplier"            },  // -137
@@ -14288,6 +14293,15 @@ bool player_t::register_passive_effect( const spelleffect_data_t& modifying_eff,
       case A_MOD_MANA_REGEN_PCT:  // 379
         misc_type = RESOURCE_MANA;  // hardcode to mana
         pct_val = modifying_eff.average( this );
+        break;
+      case A_RESTORE_POWER:  // 85
+        if ( modifying_eff.misc_value1() != POWER_MANA )  // only mana per 5
+          return false;
+        misc_type = RESOURCE_MANA;
+        flat_val = modifying_eff.average( this ) / 5.0;
+        break;
+      case A_MOD_MANA_REGEN_INTERRUPT:  // 134
+        flat_val = modifying_eff.average( this ) * 0.01;
         break;
       case A_MOD_TARGET_ARMOR_PCT:  // 280
       case A_MOD_RANGED_AND_MELEE_AUTO_ATTACK_SPEED:  // 342

@@ -227,6 +227,7 @@ struct player_t : public actor_t
     double hit, expertise, leech, avoidance, crit_avoidance;
     double spell_crit_chance, attack_crit_chance, block_value;
     double all_crit, all_haste;
+    double mana_regen_while_casting;
     double melee_haste, spell_haste, ranged_haste;
     double skill, skill_debuff, distance;
     double distance_to_move;
