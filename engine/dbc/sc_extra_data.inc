@@ -892,11 +892,11 @@ static constexpr stat_data_t __gt_class_stats_by_level[][120] =
     {      0,      0,      0,      0,      0 },
     {      0,      0,      0,      0,      0 }, // 120
   },
-  { // Mage TODO: Recheck 2-59, info from emulated servers + WoW Sims
+  { // Mage TODO: Recheck 21-59, Spi 2-8, Str/Sta/Int/Spi 13, info from emulated servers + WoW Sims
     // Str = 0.44 of Primary
     // Agi = 0.68 of Primary
     //    Str     Agi     Sta     Int     Spi
-    {     20,     20,     20,     23,     23 }, // 1/5  Defense; Dodge: 4.8400001526; Parry: 0.0000000000; Block: 0.0000000000; Armor: 40
+    {     20,     20,     20,     23,     22 }, // 1/5  Defense; Dodge: 4.8400001526; Parry: 0.0000000000; Block: 0.0000000000; Armor: 40
     {     20,     20,     20,     24,     23 },
     {     20,     20,     21,     25,     24 },
     {     20,     21,     21,     27,     25 },
