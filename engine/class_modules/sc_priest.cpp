@@ -36,7 +36,6 @@ struct priest_t final : public parse_player_effects_t
 
   struct talents_t
   {
-    player_talent_t meditation;
     player_talent_t mind_flay;
     player_talent_t shadowform;
   } talent;
@@ -105,7 +104,6 @@ void priest_t::init_spells()
   parse_all_class_passives();
   parse_all_passive_talents();
 
-  talent.meditation = find_talent_spell( talent_tree::CLASS, "Meditation" );
   talent.mind_flay  = find_talent_spell( talent_tree::CLASS, "Mind Flay" );
   talent.shadowform = find_talent_spell( talent_tree::CLASS, "Shadowform" );
 }
@@ -116,7 +114,6 @@ void priest_t::create_buffs()
 
   buff.shadowform = make_buff( this, "shadowform", talent.shadowform );
 
-  parse_effects( talent.meditation, PARSE_PASSIVE );
   parse_effects( buff.shadowform );
 }
 
