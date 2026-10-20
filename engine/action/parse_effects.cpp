@@ -1575,6 +1575,15 @@ std::vector<player_effect_t>* parse_action_base_t::get_effect_vector( const spel
     return &da_multiplier_effects;
   }
 
+  if ( eff.subtype() == A_MOD_POWER_COST_SCHOOL_PCT )
+  {
+    if ( !( dbc::get_school_mask( _action->get_school() ) & eff.affected_schools() ) )
+      return nullptr;
+
+    str = "cost percent";
+    return &cost_effects;
+  }
+
   if ( !force )
   {
     if ( !check_affected_list( pack.affect_lists, eff, force ) )
