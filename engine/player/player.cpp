@@ -15452,8 +15452,9 @@ void player_t::print_parsed_effects( report::sc_html_stream& os ) const
   os << "</div></div>\n";
 }
 
-void player_t::parse_passive_item_effect( const spell_data_t* spell )
+void player_t::parse_passive_item_effect( const spell_data_t* spell, uint32_t mask )
 {
+  register_passive_effect_mask( spell, mask );
   parse_passive_effects( spell, true, PARSE_SOURCE_ITEM );
 }
 
