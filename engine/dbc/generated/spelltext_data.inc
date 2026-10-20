@@ -1,5 +1,5 @@
 // Spell text, wow build 1.60.1.70450
-static constexpr std::array<spelltext_data_t, 7146> __spelltext_data { {
+static constexpr std::array<spelltext_data_t, 7147> __spelltext_data { {
   {      10, "Ice shards pelt the target area doing ${$1279976m1*$d*$<frostdamage>} Frost damage over $d.", "$1279976s1 Frost damage every $t3 $lsecond:seconds;.", "Rank 1" },
   {      17, "Draws on the soul of the party member to shield them, absorbing $?a14748[${$s1*(1+$14748s1/100)}][$s1] damage.  Lasts $d.  While the shield holds, spellcasting will not be interrupted by damage.  Once shielded, the target cannot be shielded again for $6788d.", "Absorbs $w1 damage.", "Rank 1" },
   {      53, "Backstab the target, causing $s2% weapon damage plus $s1 to the target.  Must be behind the target.  Requires a dagger in the main hand.  Awards $s3 combo $lpoint:points;.", 0, "Rank 1" },
@@ -3037,6 +3037,7 @@ static constexpr std::array<spelltext_data_t, 7146> __spelltext_data { {
   {   18769, "Increases all damage done by your Imp, Voidwalker, Succubus, Incubus, and Felhunter pets by $s1%.", 0, 0 },
   {   18774, "Increases the amount of damage absorbed by your Spellstone by $s1%.", 0, "Rank 1" },
   {   18775, "Increases the amount of damage absorbed by your Spellstone by $s1%.", 0, "Rank 2" },
+  {   18787, "Increases Attack Power by $s1 for $d.", "Increased attack power.", 0 },
   {   18788, "When activated, sacrifices your summoned Demon to enhance the opposing aspect of your power, granting you an effect that lasts $18789d. The effect is canceled if any Demon is summoned.\r\n\r\nImp: Increases your Shadow damage by $18789s1%.\r\n\r\nVoidwalker: Restores $18792s1% of your total Mana every $18792t1 sec.\r\n\r\nSuccubus/Incubus: Increases your Fire damage by $18791s1%.\r\n\r\nFelhunter: Restores $18790s1% of your total Health every $18790t1 sec.", 0, 0 },
   {   18789, 0, "Shadow damage done increased by $s1%.", 0 },
   {   18790, 0, "Restores $s1% of total Health every $t1 sec.", 0 },
